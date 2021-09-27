@@ -6,7 +6,7 @@
 #    By: cjullien <cjullien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 14:18:55 by cjullien          #+#    #+#              #
-#    Updated: 2021/09/24 14:20:48 by cjullien         ###   ########.fr        #
+#    Updated: 2021/09/27 13:31:53 by cjullien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(INCS)
 	make -C libft
 	make -C libmlx
-	$(CC) $(FLAGS) -I includes -o $(NAME) $(OBJS) -Llibft -lft -Lmlx -lmlx -lX11 -lbsd -lm -lXext
+	$(CC) $(FLAGS) -I includes -o $(NAME) $(OBJS) -Llibft -lft -Lmlx -Llibmlx -lmlx -lX11 -lbsd -lm -lXext
 
 %.o: %.c $(INCS)
 	$(CC) $(FLAGS) -I includes -Imlx -c $< -o $@
