@@ -6,7 +6,7 @@
 /*   By: cjullien <cjullien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 18:48:01 by cjullien          #+#    #+#             */
-/*   Updated: 2021/09/24 14:26:14 by cjullien         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:25:55 by cjullien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ int	draw(t_data *data)
 
 	img.data = data;
 	img.mlx = mlx_init();
+	if (img.mlx == NULL)
+		return (0);
 	img.win = mlx_new_window(img.mlx, X_RES, Y_RES, "fdf");
 	img.img = mlx_new_image(img.mlx, X_RES, Y_RES);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
