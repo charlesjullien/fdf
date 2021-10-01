@@ -6,7 +6,7 @@
 /*   By: cjullien <cjullien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:27:06 by cjullien          #+#    #+#             */
-/*   Updated: 2021/09/23 17:52:25 by cjullien         ###   ########.fr       */
+/*   Updated: 2021/09/27 15:13:54 by cjullien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,10 @@ void	get_biggest_line(t_data *data)
 
 void	free_file(t_data *data)
 {
-	int		i;
-
-	i = 0;
 	if (data->full_file)
-	{
-		while (data->full_file[i])
-		{
-			free(&data->full_file[i]);
-			i++;
-		}
 		free(data->full_file);
-	}
-	i = 0;
 	if (data->ff1)
-	{
-		while (data->ff1[i])
-		{
-			free(&data->ff1[i]);
-			i++;
-		}
 		free(data->ff1);
-	}
 }
 
 void	fill_tab(t_data *data, int i, int j, int k)
@@ -119,6 +101,7 @@ int	malloc_tab(t_data *data)
 	if (!malloc_tab2(data, 0, 0))
 		return (0);
 	fill_tab(data, 0, 0, 0);
+	free_file(data);
 	if (!find_vars(data))
 		return (0);
 	return (1);
